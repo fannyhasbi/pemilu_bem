@@ -20,12 +20,7 @@ CREATE TABLE IF NOT EXISTS `pemilu_bem`.`mahasiswa` (
 	NIM int(5) NOT NULL AUTO_INCREMENT,
 	nama varchar(100) NOT NULL,
 	password varchar(255) NOT NULL,
-	PRIMARY KEY (`NIM`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-CREATE TABLE IF NOT EXISTS `pemilu_bem`.`suara` (
-  `id_suara` int(5) NOT NULL,
-  `pemilih` int(5) NOT NULL,
-  `memilih` int(5) NOT NULL,
-  `waktu` datetime NOT NULL DEFAULT '0000-00-00 00:00:00'
+  memilih int(5) NULL,
+	PRIMARY KEY (`NIM`),
+  FOREIGN KEY (memilih) REFERENCES kandidat(NIM)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
